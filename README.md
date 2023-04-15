@@ -1,5 +1,6 @@
-# AUTO RUN CCMINER IN TERMUX
-<a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
+# VerusMobile For Termux
+<a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/Python-3.10-blue"></a>
+<a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-yello.svg"></a>
 <br>
 ## การติดตั้งแบบรวดเร็ว
 ```
