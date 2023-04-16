@@ -1,45 +1,92 @@
 # VerusMobile For Termux
 <a target="_blank" href="https://www.python.org/downloads/" title="Python version"><img src="https://img.shields.io/badge/Python-3.10-blue"></a>
 <a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-yello.svg"></a>
-<br>
-## การติดตั้งแบบรวดเร็ว
+
+## Get Started
+<strong>Guide:</strong> [YouTube Tutorial](https://github.com/mantvmass)
+```shell
+pkg update
 ```
-apt-get update -y && apt-get install git -y && git clone https://github.com/mantvmass/auto-run-ccminer && cd auto-run-ccminer && chmod +x setup.sh && sh setup.sh
+```shell
+pkg install git python
+```
+```shell
+git clone https://github.com/mantvmass/VerusMobile.git
+```
+```shell
+cd VerusMobile
+```
+```shell
+chmod 700 install.sh
+```
+```shell
+./install.sh
 ```
 
-## การติดตั้งตามขั้นตอน
-```
-apt-get update -y
-```
-```
-apt-get install git -y
-```
-```
-git clone https://github.com/mantvmass/auto-run-ccminer
-```
-```
-cd auto-run-ccminer
-```
-```
-chmod +x setup.sh && sh setup.sh
-```
-* หลังจากเปิดไฟล์ bash.bashrc เพิ่มบรรทัดแรกเป็น
-- ```run-miner```
-* แล้ว save
+## Software Detail
+- <strong>Supported CPU instruction sets</strong>
+   - arm64-v8a
+   - armeabi-v7a
+   - x86_64
+- <strong>Miner</strong>
+   - Miner: [ccminer](https://github.com/monkins1010/ccminer)
+   - Android Version: [shmutalov-ccminer](https://github.com/shmutalov/ccminer)
+   - Algorithm: [VerusHash](https://veruscoin.io/downloads/VerusVision.pdf)
 
-## เพิ่มเติมการใช้โปรแกรม
-* หากต้องการหยุดขุดให้ใช้กด ```CTRL + C```
-* หากต้องการเปลี่ยน TAG ใช้คำสั่ง ```edit-miner```
-* หากต้องการเปิดขุด ใช้คำสั่ง ```run-miner```
-* หากต้องการอัพเดทโปรแกรม ใช้คำสั่ง ```cd && cd ../etc/mobile-mining && python3 update.py && cd```
+## Command
+   <strong>Internal Setup</strong>
+   ```shell
+   VerusMobile --setup json '{"mode": "internal", "exec": "ccminer -a verus -o stratum+tcp://ap.luckpool.net:3956 -u RQpWNdNZ4LQ5yHUM3VAVuhUmMMiMuGLUhT.VerusMobile -p x -t 8"}
+   ```
 
-## สนับสนุนนักพัฒนา
-- ชื่อ ```ภูมินท์ มะลิวรรณ```
-- กสิกรไทย ```0608905863```
-- พร้อมเพย์ ```0639723211```
+   <strong>External Setup</strong>
+   ```shell
+   VerusMobile --setup json '{"mode": "external", "method": "POST", "url": "https://web.com/api", "tag": "mantvmass"}'
+   ```
+   ```shell
+   VerusMobile --setup json '{"mode": "external", "url": "https://nutders.com/api", "tag": "mantvmass"}'
+   ```
+   ```shell
+   VerusMobile --setup json '{"mode": "external", "tag": "mantvmass"}'
+   ```
 
-## ติดต่อ
-* [Facebook](https://www.facebook.com/PhuminMaliwan)
-* YouTube
-   * [MANTVMASS](https://www.youtube.com/channel/UCYJk0E1wwY3zX-i8tn95mhw)
-   * [MOBILE MINING](https://www.youtube.com/channel/UCevNnlKLgRTg-cku5JQ2Ahw) 
+<strong>View Setup</strong>
+```shell
+VerusMobile --setup view
+```
+
+<strong>Start Mine</strong>
+```shell
+VerusMobile --start mine autorun
+```
+```shell
+VerusMobile --start mine internal
+```
+```shell
+VerusMobile --start mine external
+```
+
+<strong>Switch Autorun</strong>
+```shell
+VerusMobile --switch autorun internal
+```
+```shell
+VerusMobile --switch autorun external
+```
+
+<strong>Switch Arch</strong>
+```shell
+VerusMobile --switch arch arm64-v8a
+```
+```shell
+VerusMobile --switch arch armeabi-v7a
+```
+```shell
+VerusMobile --switch arch x86_64
+```
+
+## Donate
+- <strong>Verus Wallet:</strong>
+```RQpWNdNZ4LQ5yHUM3VAVuhUmMMiMuGLUhT```
+
+Thank you for your support
