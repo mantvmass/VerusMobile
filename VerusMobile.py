@@ -159,6 +159,28 @@ def json_setup(value):
     else: print("{}: Unknow {} mode".format(PROGRAM_NAME, j["mode"]))
 
 
+def view_setup():
+    j = readjson()
+    v = """{name} View Setup:
+    Mode: {mode}
+    Architecture: {arch}
+    External:
+        Tag: {tag}
+        Method: {method}
+        Url: {url}
+    Internal:
+        Exec: {exec}
+    """.format(
+            name = PROGRAM_NAME,
+            mode = j["mode"],
+            arch = j["architecture"],
+            tag = j["external"]["tag"],
+            method = j["external"]["method"],
+            url = j["external"]["url"],
+            exec = j["internal"]["exec"],
+        )
+    print(v)
+
 
 def mine_internal():
     return readjson()["internal"]["exec"] # set exec from internal setting
@@ -226,6 +248,7 @@ def StartCommand(args):
 def SetupCommand(args):
     if args.setup[0] == "gui": print("{}: GUI Setup in developments")
     elif args.setup[0] == "json": json_setup(args.setup)
+    elif args.setup[0] == "view": view_setup()
     else: print("{}: Unknow {}".format(PROGRAM_NAME, args.start[0]))
     sys.exit(0)
 
