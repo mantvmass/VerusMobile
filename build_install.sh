@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 
+pyinstaller -F --name VerusMobile VerusMobile.py
+
 
 set -e
 : "${TERMUX_APP_PACKAGE:="com.termux"}"
@@ -8,7 +10,7 @@ set -e
 : "${TERMUX_ANDROID_HOME:="/data/data/${TERMUX_APP_PACKAGE}/files/home"}"
 
 echo "Installing $TERMUX_PREFIX/bin/VerusMobile"
-install -m 700 ./VerusMobile "$TERMUX_PREFIX"/bin
+install -m 700 ./dist/VerusMobile "$TERMUX_PREFIX"/bin
 
 echo "Installing $TERMUX_PREFIX/etc/VerusMobile"
 install -d -m 700 "$TERMUX_PREFIX"/etc/VerusMobile/Miner/arm64-v8a
