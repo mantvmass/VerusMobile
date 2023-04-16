@@ -43,13 +43,10 @@ CCMINER_RUNTIME = "/Miner/{architecture}/"
 # python VerusMobile.py --switch autorun internal
 # python VerusMobile.py --switch autorun external
 
-# --switch autorun mode
-# python VerusMobile.py --switch autorun internal
-# python VerusMobile.py --switch autorun external
-
 # --switch arch
-# python VerusMobile.py --switch autorun internal
-# python VerusMobile.py --switch autorun external
+# python VerusMobile.py --switch arch arm64-v8a
+# python VerusMobile.py --switch arch armeabi-v7a
+# python VerusMobile.py --switch arch x86_64
 
 # format data form server
 # {
@@ -109,13 +106,16 @@ def external_update(data, new):
 
 
 
-def switch_autorun(mode):
-    if mode not in ["internal", "external"]:
+def switch_autorun(args):
+    if len(args.switch) < 2:
+        print("{}: This function need mode: 'internal', 'external'".format(PROGRAM_NAME))
+        sys.exit(0)
+    if args.switch[1] not in ["internal", "external"]:
         print("{}: This function supported mode: 'internal', 'external'".format(PROGRAM_NAME))
         sys.exit(0)
     try:
         j = readjson()
-        j["mode"] = mode
+        j["mode"] = args.switch[1]
         with open(TERMUX_PREFIX + "/Miner/config.json", "w") as file:
             json.dump(j, file, indent=4)
         print("{}: Update autorun mode success.".format(PROGRAM_NAME))
@@ -124,13 +124,16 @@ def switch_autorun(mode):
 
 
 
-def switch_arch(arch):
-    if arch not in ["x86_64", "armeabi-v7a", "arm64-v8a"]:
+def switch_arch(args):
+    if len(args.switch) < 2:
+        print("{}: This function need arch: x86_64', 'armeabi-v7a', 'arm64-v8a'".format(PROGRAM_NAME))
+        sys.exit(0)
+    if args.switch[1] not in ["x86_64", "armeabi-v7a", "arm64-v8a"]:
         print("{}: This function supported arch: 'x86_64', 'armeabi-v7a', 'arm64-v8a'".format(PROGRAM_NAME))
         sys.exit(0)
     try:
         j = readjson()
-        j["architecture"] = arch
+        j["architecture"] = args.switch["1"]
         with open(TERMUX_PREFIX + "/Miner/config.json", "w") as file:
             json.dump(j, file, indent=4)
         print("{}: Update Arch success.".format(PROGRAM_NAME))
@@ -243,7 +246,7 @@ def mine(args):
 def StartCommand(args):
     if args.start[0] == "mine": mine(args.start)
     elif args.start[0] == "setup": print("{}: GUI Setup in developments")
-    else: print("{}: Unknow {}".format(PROGRAM_NAME, args.start[0]))
+    else: print("{}: --start unknow {} option.".format(PROGRAM_NAME, args.start[0]))
     sys.exit(0)
 
 
@@ -252,14 +255,14 @@ def SetupCommand(args):
     if args.setup[0] == "gui": print("{}: GUI Setup in developments")
     elif args.setup[0] == "json": json_setup(args.setup)
     elif args.setup[0] == "view": view_setup()
-    else: print("{}: Unknow {}".format(PROGRAM_NAME, args.start[0]))
+    else: print("{}: --setup unknow {} option.".format(PROGRAM_NAME, args.setup[0]))
     sys.exit(0)
 
 
 def SwitchCommand(args):
-    if args.switch[0] == "autorun": switch_autorun(args.switch[1])
-    elif args.switch[0] == "arch": switch_arch(args.switch[1])
-    else: print("{}: Unknow {}".format(PROGRAM_NAME, args.start[0]))
+    if args.switch[0] == "autorun": switch_autorun(args.switch)
+    elif args.switch[0] == "arch": switch_arch(args.switch)
+    else: print("{}: --switch unknow {} option.".format(PROGRAM_NAME, args.switch[0]))
     sys.exit(0)
 
 
