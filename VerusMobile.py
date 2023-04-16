@@ -31,6 +31,9 @@ CCMINER_RUNTIME = "/Miner/{architecture}/"
 # python VerusMobile.py --setup json '{"mode": "external", "url": "https://nutders.com/api", "tag": "mantvmass"}'
 # python VerusMobile.py --setup json '{"mode": "external", "tag": "mantvmass"}'
 
+# --setup view
+# python VerusMobile.py --setup view
+
 # --start mine
 # python VerusMobile.py --start mine autorun
 # python VerusMobile.py --start mine internal
