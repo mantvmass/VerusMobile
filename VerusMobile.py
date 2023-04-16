@@ -13,13 +13,13 @@ PROGRAM_VERSION = "3.0"
 
 
 TERMUX_APP_PACKAGE = "com.termux"
-TERMUX_PREFIX = "/data/data/{}/files/usr/etc/verus-mobile".format(TERMUX_APP_PACKAGE)
+TERMUX_PREFIX = "/data/data/{}/files/usr/etc/VerusMobile".format(TERMUX_APP_PACKAGE)
 CCMINER_RUNTIME = "/Miner/{architecture}/"
 
 
-
-DEV_PREFIX = "/home/mantvmass/Desktop/VerusMobile"
-TERMUX_PREFIX = DEV_PREFIX
+# for developments
+# DEV_PREFIX = "/home/mantvmass/Desktop/VerusMobile"
+# TERMUX_PREFIX = DEV_PREFIX
 
 
 # --setup internal config style
