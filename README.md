@@ -5,10 +5,7 @@
 ## Get Started
 <strong>Guide:</strong> [YouTube Tutorial](https://github.com/mantvmass)
 ```shell
-pkg update
-```
-```shell
-pkg install git python
+pkg update -y && pkg install git python
 ```
 ```shell
 git clone https://github.com/mantvmass/VerusMobile.git
@@ -17,10 +14,10 @@ git clone https://github.com/mantvmass/VerusMobile.git
 cd VerusMobile
 ```
 ```shell
-chmod 700 install.sh
+pip install -r requirements.txt
 ```
 ```shell
-./install.sh
+chmod 700 install.sh && ./install.sh
 ```
 
 ## Software Detail
