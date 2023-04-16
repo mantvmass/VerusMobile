@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
-
+#!/usr/bin/bash
 
 pyinstaller -F --name VerusMobile VerusMobile.py

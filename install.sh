@@ -1,6 +1,4 @@
-#!/usr/bin/env bash
-
-
+#!/usr/bin/bash
 
 set -e
 : "${TERMUX_APP_PACKAGE:="com.termux"}"
@@ -8,6 +6,7 @@ set -e
 : "${TERMUX_ANDROID_HOME:="/data/data/${TERMUX_APP_PACKAGE}/files/home"}"
 
 echo "Installing $TERMUX_PREFIX/bin/VerusMobile"
+mv VerusMobile.py VerusMobile
 install -m 700 ./VerusMobile "$TERMUX_PREFIX"/bin
 
 echo "Installing $TERMUX_PREFIX/etc/VerusMobile"

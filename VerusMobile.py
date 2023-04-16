@@ -1,10 +1,11 @@
+#!/usr/bin/python
+
 import argparse
 import sys
 import urllib.request
 import json
 import requests
 import os
-
 
 
 PROGRAM_NAME = "VerusMobile"
