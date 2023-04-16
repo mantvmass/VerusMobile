@@ -208,9 +208,9 @@ def mine(args):
         sys.exit(0)
 
     runtime = TERMUX_PREFIX + CCMINER_RUNTIME.format(architecture = readjson()["architecture"]) + exec
-    # os.system(TERMUX_PREFIX + "/etc/verus-mobile" + CCMINER_RUNTIME.format(architecture = config_miner["architecture"]) + exec)
+    os.system(runtime)
     sys.exit(0)
-    print(runtime)
+    # print(runtime)
 
 
 
