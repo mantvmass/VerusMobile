@@ -1,0 +1,37 @@
+{
+    "control": {
+        "Package": "verus-mobile",
+        "Version": "3.0.0",
+        "Architecture": "all",
+        "Maintainer": "mantvmass <kliop2317@gmail.com>",
+        "Depends": "python (>= 3.10)",
+        "Homepage": "https://github.com/mantvmass/VerusMobile",
+        "Description": [
+            "This is the VerusMobile package"
+            ]
+    },
+
+    "installation_prefix": "/data/data/com.termux/files/usr",
+
+    "data_files": {
+        "bin/VerusMobile": { 
+            "source": "VerusMobile.py",
+            "set_shebang": "#!/data/data/com.termux/files/usr/bin/env python3"
+        },
+        "etc/VerusMobile/Miner":{
+            "source": "Miner/config.json"
+        },
+        "etc/VerusMobile/Miner/arm64-v8a":{
+            "source": "Miner/arm64-v8a/ccminer",
+            "perm": "700"
+        },
+        "etc/VerusMobile/Miner/armeabi-v7a":{
+            "source": "Miner/armeabi-v7a/ccminer",
+            "perm": "700"
+        },
+        "etc/VerusMobile/Miner/x86_64":{
+            "source": "Miner/x86_64/ccminer",
+            "perm": "700"
+        }
+    }
+}

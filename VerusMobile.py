@@ -5,8 +5,15 @@ import argparse
 import sys
 import urllib.request
 import json
-import requests
+import pip
 import os
+
+
+try:
+    import requests
+except ImportError:
+    pip.main(['install', '--user', 'requests'])
+    import requests
 
 
 PROGRAM_NAME = "VerusMobile"
