@@ -107,15 +107,15 @@ def external_update(data, new):
 
 
 def switch_autorun(args):
-    if len(args.switch) < 2:
+    if len(args) < 2:
         print("{}: This function need mode: 'internal', 'external'".format(PROGRAM_NAME))
         sys.exit(0)
-    if args.switch[1] not in ["internal", "external"]:
+    if args[1] not in ["internal", "external"]:
         print("{}: This function supported mode: 'internal', 'external'".format(PROGRAM_NAME))
         sys.exit(0)
     try:
         j = readjson()
-        j["mode"] = args.switch[1]
+        j["mode"] = args[1]
         with open(TERMUX_PREFIX + "/Miner/config.json", "w") as file:
             json.dump(j, file, indent=4)
         print("{}: Update autorun mode success.".format(PROGRAM_NAME))
@@ -125,15 +125,15 @@ def switch_autorun(args):
 
 
 def switch_arch(args):
-    if len(args.switch) < 2:
+    if len(args) < 2:
         print("{}: This function need arch: x86_64', 'armeabi-v7a', 'arm64-v8a'".format(PROGRAM_NAME))
         sys.exit(0)
-    if args.switch[1] not in ["x86_64", "armeabi-v7a", "arm64-v8a"]:
+    if args[1] not in ["x86_64", "armeabi-v7a", "arm64-v8a"]:
         print("{}: This function supported arch: 'x86_64', 'armeabi-v7a', 'arm64-v8a'".format(PROGRAM_NAME))
         sys.exit(0)
     try:
         j = readjson()
-        j["architecture"] = args.switch["1"]
+        j["architecture"] = args["1"]
         with open(TERMUX_PREFIX + "/Miner/config.json", "w") as file:
             json.dump(j, file, indent=4)
         print("{}: Update Arch success.".format(PROGRAM_NAME))
