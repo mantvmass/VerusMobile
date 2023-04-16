@@ -156,7 +156,7 @@ def internet(host='http://google.com'):
 
 def json_setup(value):
     if len(value) < 2:
-        print("""{}: This function need parameter, for example: VerusMobile --setup json '{\"mode\": \"internal\", \"exec\": \"ccminer -a verus -o stratum+tcp://ap.luckpool.net:3956 -u RQpWNdNZ4LQ5yHUM3VAVuhUmMMiMuGLUhT.VerusMobile -p x -t 8\"}'""".format(PROGRAM_NAME))
+        print("{}:".format(PROGRAM_NAME), '''This function need parameter, for example: VerusMobile --setup json '{"mode": "internal", "exec": "ccminer -a verus -o stratum+tcp://ap.luckpool.net:3956 -u RQpWNdNZ4LQ5yHUM3VAVuhUmMMiMuGLUhT.VerusMobile -p x -t 8"}' ''')
         sys.exit(0)
     try:
         j = json.loads(value[1])

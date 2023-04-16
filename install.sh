@@ -14,7 +14,7 @@ install -d -m 700 "$TERMUX_PREFIX"/etc/VerusMobile/Miner/arm64-v8a
 install -d -m 700 "$TERMUX_PREFIX"/etc/VerusMobile/Miner/armeabi-v7a
 install -d -m 700 "$TERMUX_PREFIX"/etc/VerusMobile/Miner/x86_64
 
-echo echo "Installing ccminer"
+echo "Installing ccminer, supported ( arm64-v8a, armeabi-v7a, x86_64 )"
 install -m 700 Miner/arm64-v8a/ccminer "$TERMUX_PREFIX"/etc/VerusMobile/Miner/arm64-v8a
 install -m 700 Miner/armeabi-v7a/ccminer "$TERMUX_PREFIX"/etc/VerusMobile/Miner/armeabi-v7a
 install -m 700 Miner/x86_64/ccminer "$TERMUX_PREFIX"/etc/VerusMobile/Miner/x86_64
