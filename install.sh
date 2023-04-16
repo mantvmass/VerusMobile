@@ -23,5 +23,5 @@ install -Dm600 README.md "$TERMUX_PREFIX"/share/doc/VerusMobile/README.md
 
 echo "++++++++ Done ++++++++"
 echo "Your architecture: " $(dpkg --print-architecture)
-echo "Please change your architecture like: " $(dpkg --print-architecture)
-echo "with command: VerusMobile --switch arch " $(dpkg --print-architecture)
+echo "Please change your architecture like:" $(dpkg --print-architecture)
+echo "with command: VerusMobile --switch arch" $(dpkg --print-architecture)
