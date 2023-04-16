@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+
 import argparse
 import sys
 import urllib.request
@@ -65,9 +66,11 @@ def custom_request(method, url, headers={}, payload={}, timeout=10):
     try:
         return requests.request(method, url, headers=headers, data=payload, timeout=timeout).json()
     except requests.exceptions.ConnectTimeout:
-        return { "error": 500, "result": "connect timeout"}
+        # return { "error": 500, "result": "connect timeout"}
+        return { "status": "error", "message": "connect timeout"}
     except requests.exceptions.ReadTimeout:
-        return { "error": 500, "result": "read timeout"}
+        # return { "error": 500, "result": "read timeout"}
+        return { "status": "error", "message": "read timeout"}
 
 
 
@@ -153,16 +156,20 @@ def internet(host='http://google.com'):
 
 def json_setup(value):
     if len(value) < 2:
-        print('''VerusMobile: This function need parameter, for example: VerusMobile --setup json '{"mode": "internal", "exec": "ccminer -a verus -o stratum+tcp://ap.luckpool.net:3956 -u RQpWNdNZ4LQ5yHUM3VAVuhUmMMiMuGLUhT.VerusMobile -p x -t 8"}' ''')
+        print("""{}: This function need parameter, for example: VerusMobile --setup json '{"mode": "internal", "exec": "ccminer -a verus -o stratum+tcp://ap.luckpool.net:3956 -u RQpWNdNZ4LQ5yHUM3VAVuhUmMMiMuGLUhT.VerusMobile -p x -t 8"}'""".format(PROGRAM_NAME))
         sys.exit(0)
-    j = json.loads(value[1])
-    if j["mode"] == "internal":
-        if not internal_update(readjson(), j["exec"]): print("{}: Can't update internal mode.".format(PROGRAM_NAME))
-        else: print("{}: Update internal mode success.".format(PROGRAM_NAME))
-    elif j["mode"] == "external":
-        if not external_update(readjson(), j): print("{}: Can't update external mode.".format(PROGRAM_NAME))
-        else: print("{}: Update external mode success.".format(PROGRAM_NAME))
-    else: print("{}: Unknow {} mode".format(PROGRAM_NAME, j["mode"]))
+    try:
+        j = json.loads(value[1])
+        if j["mode"] == "internal":
+            if not internal_update(readjson(), j["exec"]): print("{}: Can't update internal mode.".format(PROGRAM_NAME))
+            else: print("{}: Update internal mode success.".format(PROGRAM_NAME))
+        elif j["mode"] == "external":
+            if not external_update(readjson(), j): print("{}: Can't update external mode.".format(PROGRAM_NAME))
+            else: print("{}: Update external mode success.".format(PROGRAM_NAME))
+        else: print("{}: Unknow {} mode".format(PROGRAM_NAME, j["mode"]))
+    except Exception:
+        print("{}: Invalid Json!".format(PROGRAM_NAME))
+
 
 
 def view_setup():
@@ -252,7 +259,7 @@ def StartCommand(args):
 
 
 def SetupCommand(args):
-    if args.setup[0] == "gui": print("{}: GUI Setup in developments")
+    if args.setup[0] == "gui": print("{}: GUI Setup in developments".format(PROGRAM_NAME))
     elif args.setup[0] == "json": json_setup(args.setup)
     elif args.setup[0] == "view": view_setup()
     else: print("{}: --setup unknow {} option.".format(PROGRAM_NAME, args.setup[0]))
