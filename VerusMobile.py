@@ -261,7 +261,7 @@ def mine(args):
 
 def StartCommand(args):
     if args.start[0] == "mine": mine(args.start)
-    elif args.start[0] == "setup": print("{}: GUI Setup in developments")
+    elif args.start[0] == "setup": print("{}: GUI Setup in developments".format(PROGRAM_NAME))
     else: print("{}: --start unknow {} option.".format(PROGRAM_NAME, args.start[0]))
     sys.exit(0)
 
