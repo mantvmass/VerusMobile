@@ -220,8 +220,7 @@ def mine_external():
         headers = { 'content-type':'application/json'},
         payload = json.dumps({"tag": j["external"]["tag"]})
     )
-
-    data = request.json()
+    data = json.loads(request.text)
     if data["status"] != "ok":
         print("Server Reply: {}".format(data["message"]))
         sys.exit(0)
