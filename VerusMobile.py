@@ -27,8 +27,8 @@ CCMINER_RUNTIME = "/Miner/{architecture}/"
 
 
 # for developments
-DEV_PREFIX = "/home/mantvmass/Desktop/VerusMobile"
-TERMUX_PREFIX = DEV_PREFIX
+# DEV_PREFIX = "/home/mantvmass/Desktop/VerusMobile"
+# TERMUX_PREFIX = DEV_PREFIX
 
 
 # --setup internal config style
