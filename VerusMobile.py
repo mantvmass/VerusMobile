@@ -27,8 +27,8 @@ CCMINER_RUNTIME = "/Miner/{architecture}/"
 
 
 # for developments
-# DEV_PREFIX = "/home/mantvmass/Desktop/VerusMobile"
-# TERMUX_PREFIX = DEV_PREFIX
+DEV_PREFIX = "/home/mantvmass/Desktop/VerusMobile"
+TERMUX_PREFIX = DEV_PREFIX
 
 
 # --setup internal config style
@@ -71,7 +71,7 @@ CCMINER_RUNTIME = "/Miner/{architecture}/"
 
 def custom_request(method, url, headers={}, payload={}, timeout=10):
     try:
-        return requests.request(method, url, headers=headers, data=payload, timeout=timeout).json()
+        return requests.request(method, url, headers=headers, data=payload, timeout=timeout)
     except requests.exceptions.ConnectTimeout:
         # return { "error": 500, "result": "connect timeout"}
         return { "status": "error", "message": "connect timeout"}
@@ -212,12 +212,14 @@ def mine_external():
     if not internet():
         print("{}: Internet no connect.".format(PROGRAM_NAME))
         sys.exit(0)
+    
     request = custom_request(
-        method=j["external"]["method"],
-        url=j["external"]["url"],
-        headers = { 'Content-Type': 'application/json' },
-        payload = {"tag": j["external"]["tag"]}
+        method = j["external"]["method"],
+        url = j["external"]["url"],
+        headers = { 'content-type':'application/json'},
+        payload = json.dumps({"tag": j["external"]["tag"]})
     )
+
     data = request.json()
     if data["status"] != "ok":
         print("Server Reply: {}".format(data["message"]))
@@ -298,7 +300,7 @@ if __name__ == "__main__":
     parser.add_argument('-v', '--version', action='version', version='%(prog)s {version}'.format(version = PROGRAM_VERSION))
     # parser.add_argument('-c', '--create-new', action='store_true', default=False, help="Create new database")
     parser.add_argument('--setup', nargs='+', help="Command setup: %(prog)s --setup 'option', option lists: [ gui, json, view ]")
-    parser.add_argument('--start', nargs='+', help="Command start: %(prog)s --start 'option', option lists: [ internal, external ]")
+    parser.add_argument('--start', nargs='+', help="Command start: %(prog)s --start 'option', option lists: [ mine, setup ] suboption lists: [ internal, external ]")
     parser.add_argument('--switch', nargs='+', help="Command start: %(prog)s --switch 'option', option lists: [ arch, autorun-mode ], arch lists: [ x86_64, armeabi-v7a, arm64-v8a ], mode lists: [ internal, external ]")
     args = parser.parse_args()
 
