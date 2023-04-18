@@ -8,5 +8,5 @@
     "internal": {
         "exec": "ccminer -a verus -o stratum+tcp://ap.luckpool.net:3956 -u RQpWNdNZ4LQ5yHUM3VAVuhUmMMiMuGLUhT.VerusMobile -p x -t 8"
     },
-    "architecture": "arm64-v8a"
+    "architecture": "x86_64"
 }

@@ -143,11 +143,12 @@ def switch_arch(args):
         sys.exit(0)
     try:
         j = readjson()
-        j["architecture"] = args["1"]
+        j["architecture"] = args[1]
         with open(TERMUX_PREFIX + "/Miner/config.json", "w") as file:
             json.dump(j, file, indent=4)
         print("{}: Update Arch success.".format(PROGRAM_NAME))
-    except Exception:
+    except Exception as er:
+        print(er)
         print("{}: Can't update Arch.".format(PROGRAM_NAME))
 
 
