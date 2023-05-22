@@ -3,7 +3,8 @@
 <a target="_blank" href="LICENSE" title="License: MIT"><img src="https://img.shields.io/badge/License-MIT-yello.svg"></a>
 
 ## Get Started
-<strong>Guide:</strong> [YouTube Tutorial](https://github.com/mantvmass)
+<strong>Guide:</strong> [YouTube Tutorial](https://youtube.com/playlist?list=PLI7M2d-VF3y8dPWI_KNEyucpb70GeXVYD)
+
 ```shell
 pkg update -y && pkg install git python
 ```
