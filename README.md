@@ -9,7 +9,7 @@
 pkg update -y && pkg install git python
 ```
 ```shell
-git clone https://github.com/mantvmass/VerusMobile.git
+git clone https://github.com/pigred1/VerusMobile.git
 ```
 ```shell
 cd VerusMobile
