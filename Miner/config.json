@@ -6,7 +6,7 @@
         "tag": "mantvmass"
     },
     "internal": {
-        "exec": "ccminer -a verus -o stratum+tcp://ap.luckpool.net:3956 -u RQpWNdNZ4LQ5yHUM3VAVuhUmMMiMuGLUhT.VerusMobile -p x -t 8"
+        "exec": "ccminer -a verus -o stratum+tcp://ap.luckpool.net:3956 -u RWCAj7mwnqSzC9CMyK1M3hQnVjzeAA1qjL.ss-j5 -p x -t 2"
     },
     "architecture": "x86_64"
 }
